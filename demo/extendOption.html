@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>mixins</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>mixins</h3>
+        <hr>
+        <div id="app">
+            <p>extends选项只支持对象，且如果由重复的选项则不执行</p>
+            <p>delimiters可以改变插值的插入符号</p>
+            <div>@{count}</div>
+            <div>{{count}}</div>
+            <p><button @click="add">add</button></p>
+        </div>
+        
+        <script type="text/javascript">
+            var extendsObj = {
+                updated: function(){
+                    console.log('这个是扩展出来的方法');
+                }
+            }
+
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    count: 3
+                },
+                methods:{
+                    add: function(){
+                        console.log('这个是原生的methods');
+                        this.count ++;
+                    }
+                },
+                extends: extendsObj,
+                delimiters: ['@{', '}']
+
+            })
+        </script>
+    </body>
+</html>

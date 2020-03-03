@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>component2</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>component2</h3>
+        <hr>
+        <div id="app">
+            <hxx :come-from="msg"></hxx>
+        </div>
+   
+        
+        <script type="text/javascript">
+          
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    msg: '这个是传入子组件的值'
+                },
+                components:{
+                    'hxx': {
+                        template: `
+                            <div>我是局部的组件---{{comeFrom}}</div>
+                        `,
+                        props: ['comeFrom']
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>

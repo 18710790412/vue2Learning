@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>component</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>component</h3>
+        <hr>
+        <div id="app">
+            <hxx></hxx>
+            <hxx1></hxx1>
+        </div>
+   
+        
+        <script type="text/javascript">
+            Vue.component('hxx',{
+                template: `
+                    <div>我是全局的组件</div>
+                `
+            })
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    count: 2
+                },
+                components:{
+                    'hxx1': {
+                        template: `
+                            <div>我是局部的组件</div>
+                        `
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>

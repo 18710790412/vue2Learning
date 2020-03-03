@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>example3</title>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <h3>example3</h3>
+        <p>$mount/$destory/$forceUpdate/</p>
+        <hr>
+        <div id="app"></div>
+        <p><button onclick="destroy()">destroy</button></p>
+        <p><button onclick="update()">reload</button></p>
+        <script type="text/javascript">
+            var hxx = Vue.extend({
+                template: `
+                    <p>{{msg}}</p>
+                `,
+                data: function(){
+                    return {
+                        msg: 'hello hxx~!!!'
+                    }
+                },
+                mounted: function(){
+                    console.log('mounted 被创建了！！！');
+                },
+                updated: function(){
+                    console.log('更新了！！！');
+                },
+                destroyed: function(){
+                    console.log('destroy执行了！！！');
+                }
+            });
+            var vm = new hxx().$mount('#app');
+
+            function destroy(){
+                vm.$destroy();
+            }
+            function update(){
+                vm.$forceUpdate();
+            }
+
+        </script>
+    </body>
+</html>

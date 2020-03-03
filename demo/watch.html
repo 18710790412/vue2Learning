@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>methods</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>methods</h3>
+        <hr>
+        <div id="app">
+            <div>今日温度：{{temp}}</div>
+            <div>建议穿衣：{{wear}}</div>
+            <div>
+                <button @click="addTem">addTem</button>
+                <button @click="reduceTem">reduceTem</button>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            var wearArr = ['T恤短袖', '夹克长裙', '羽绒服'];
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    temp: 14,
+                    wear: '穿衣建议'
+                },
+                methods: {
+                    addTem: function(){
+                        this.temp += 5;
+                    },
+                    reduceTem: function(){
+                        this.temp -= 5;
+                    }
+                },
+                // watch: {
+                //     temp: function(newVal, oldVal){
+                //         if(newVal >= 25){
+                //             this.wear = wearArr[0];
+                //         }else if(newVal < 25 && newVal >= 0){
+                //             this.wear = wearArr[1];
+                //         }else{
+                //             this.wear = wearArr[2];
+                //         }
+                //     }
+                // }
+
+            })
+            app.$watch('temp',function(newVal, oldVal){
+                if(newVal >= 25){
+                    this.wear = wearArr[0];
+                }else if(newVal < 25 && newVal >= 0){
+                    this.wear = wearArr[1];
+                }else{
+                    this.wear = wearArr[2];
+                }   
+            })
+        </script>
+    </body>
+</html>

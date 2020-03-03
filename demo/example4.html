@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>example4</title>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <h3>example4实例事件</h3>
+        <p>$on/$once/$off</p>
+        <hr>
+        <div id="app">
+            {{count}}
+            <p><button @click="add">add</button></p>
+        </div>
+        <p><button onclick="reduce()">reduce</button></p>
+        <p><button onclick="once()">once</button></p>
+        <p><button onclick="off()">off</button></p>
+        <script type="text/javascript">
+            var app = new Vue({
+                el:'#app',
+                data:{
+                    count: 1
+                },
+                methods: {
+                    add: function(){
+                        this.count++;
+                    }
+                }
+            });
+            app.$on('reduce',function(){
+                this.count--;
+            })
+
+            function reduce(){
+                app.$emit('reduce');
+            }
+            app.$once('reduceOnce',function(){
+                this.count -= 2;
+            })
+            function once(){
+                app.$emit('reduceOnce');
+            }
+            function off(){
+                app.$off('reduce');
+            }
+            
+
+
+        </script>
+    </body>
+</html>

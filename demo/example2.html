@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>example2</title>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <h3>example2</h3>
+        <hr>
+        <div id="app">{{msg}}</div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data:{
+                    msg: 'Hello world! Hello HXX!!!'
+                },
+                mounted: function(){
+                    $('#app').html('此时使用了jquery!!!');
+                }
+            })
+        </script>
+    </body>
+</html>

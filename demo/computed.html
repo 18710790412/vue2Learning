@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>computed</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>computed</h3>
+        <hr>
+        <div id="app">
+            <div>{{changeStyle}}</div>
+        </div>
+        
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    money: 111
+                },
+                computed: {
+                    changeStyle: function(){
+                        return this.money = '所需价格为：￥' + this.money + ' 元';
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>

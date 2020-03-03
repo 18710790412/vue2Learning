@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>component4</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>component4</h3>
+        <hr>
+        <div id="app">
+            <div id="header"></div>
+        </div>
+        <script type="text/javascript">
+            var header_a = Vue.extend({
+                template: `
+                    <div>{{msg}}----{{aaa}}</div>
+                `,
+                data: function(){
+                    return {
+                        msg: '这个是扩展'
+                    }
+                },
+                props: ['aaa']
+            });
+            var bbb = {
+                aaa:'propsData展示'
+            };
+            new header_a({propsData:bbb}).$mount('#header')
+
+            
+        </script>
+    </body>
+</html>

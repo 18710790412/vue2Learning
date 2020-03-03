@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>example5--slot</title>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery-3.4.1.min.js"></script>
+    </head>
+    <body>
+        <h3>example5--slot</h3>
+        <p>slot插值，在组件中插入想要放入的值</p>
+        <hr>
+        <div id="app">
+            <hxx>
+                <span slot="name">{{hxxData.name}}</span>
+                <span slot="age">{{hxxData.age}}</span>
+                <span slot="favor">{{hxxData.favor}}</span>
+            </hxx>
+        </div>
+        <template id="tep">
+            <div>
+                <p>姓名：<slot name="name"></slot></p>
+                <p>年龄：<slot name="age"></slot></p>
+                <p>爱好：<slot name="favor"></slot></p>
+            </div>
+        </template>
+        <script type="text/javascript">
+            var hxxTep = {
+                template: '#tep'
+            };
+            var app = new Vue({
+                el:'#app',
+                data:{
+                    hxxData: {
+                        name: 'aaaaaa',
+                        age: 'bbbbbb',
+                        favor: 'cccccc'
+                    }
+                },
+                components:{
+                    'hxx': hxxTep
+                }
+            });
+            
+
+
+        </script>
+    </body>
+</html>

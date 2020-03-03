@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>component4</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>component4</h3>
+        <hr>
+        <div id="app">
+            <component :is="who"></component>
+            <button @click="changeCom">change</button>
+        </div>
+        <script type="text/javascript">
+            var componentA = {
+                template: `
+                    <div style="color:pink;">我是componentA</div>
+                `
+            };
+            var componentB = {
+                template: `
+                    <div style="color:purple;">我是componentB</div>
+                `
+            };
+            var componentC = {
+                template: `
+                    <div style="color:red;">我是componentC</div>
+                `
+            };
+            
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    who: 'componentA'
+                },
+                components:{
+                    'componentA': componentA,
+                    'componentB': componentB,
+                    'componentC': componentC,
+                },
+                methods:{
+                    changeCom: function(){
+                        if(this.who === 'componentA'){
+                            this.who = 'componentB';
+                        }else if(this.who === 'componentB'){
+                            this.who = 'componentC';
+                        }else{
+                            this.who = 'componentA';
+                        }
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>

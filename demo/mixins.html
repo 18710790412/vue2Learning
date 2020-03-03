@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>mixins</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>mixins</h3>
+        <hr>
+        <div id="app">
+            <p>混入的方法要比原生的方法先执行，同时全局的混入方法比构造器中的混入要先执行</p>
+            <div>{{count}}</div>
+            <p><button @click="add">add</button></p>
+        </div>
+        
+        <script type="text/javascript">
+            var btnConsole = {
+               updated:function(){
+                   console.log('数据发生了变化，变成了：' + this.count);
+               }
+            };
+            Vue.mixin({
+                updated: function(){
+                    console.log('我是全局的混入！！！')
+                }
+            })
+
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    count: 3
+                },
+                methods:{
+                    add: function(){
+                        this.count ++;
+                    }
+                },
+                updated: function(){
+                    console.log('这是原生的更新数据')
+                },
+                mixins: [btnConsole]
+
+            })
+        </script>
+    </body>
+</html>

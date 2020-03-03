@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>component3</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>component3</h3>
+        <hr>
+        <div id="app">
+            <hxx :come-from="msg"></hxx>
+        </div>
+   
+        
+        <script type="text/javascript">
+            var son = {
+                template: `
+                    <div>我是子组件</div>
+                `,
+            };
+            var hxx = {
+                template: `
+                    <div>
+                        <p>我是父组件---{{comeFrom}}</p>
+                        <son></son>
+                    </div>
+                `,
+                props: ['comeFrom'],
+                components:{
+                    'son': son
+                }
+            };
+            
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    msg: '这个是父组件',
+                    sonMsg: '这个是子组件'
+                },
+                components:{
+                    'hxx': hxx
+                }
+
+            })
+        </script>
+    </body>
+</html>
