@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>template</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>template</h3>
+        <hr>
+        <div id="app">
+            <div>{{count}}</div>
+        </div>
+        <!-- <template id="dd2">
+            <h3 sytle="color:red;">我是标签模板模板</h3>
+        </template>     -->
+        <script type="x-template" id="dd3">
+            <h3 sytle="color:red;">我是script标签模板模板</h3>
+        </script>  
+        
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    count: 2
+                },
+                // template: `
+                //     <h3 sytle="color:red;">我是选项模板</h3>
+                // `,
+                template: '#dd3',
+                methods:{
+                    addNum: function(){
+                        this.count ++;
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>

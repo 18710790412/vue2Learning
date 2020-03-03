@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>v-text&v-html</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>v-text&v-html</h3>
+        <hr>
+        <div id="app">
+            <ul>
+                <li v-text="msg"></li>
+                <li>{{msg}}</li>
+                <li v-html="msg1"></li>
+                <li>{{msg1}}</li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data:{
+                    msg: 'v-text&v-html区别',
+                    msg1: '<h3>hello world!</h3>'
+                }
+            })
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>v-on</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>v-on</h3>
+        <hr>
+        <div id="app">
+            本场比赛得分：{{score}}
+            <button @click="addScore()">+</button>
+            <button @click="jianScroe()">-</button>
+        </div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data:{
+                    msg: 'v-on',
+                    score: 0
+                },
+                methods:{
+                    addScore: function(){
+                        this.score++;
+                    },
+                    jianScroe: function(){
+                        this.score--;
+                    }
+                }
+            })
+            
+        </script>
+    </body>
+</html>

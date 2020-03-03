@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>v-on</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>v-on</h3>
+        <hr>
+        <div id="app">
+            <input type="text" v-model="msg">
+            <p>{{msg}}test</p>
+            <input type="text" v-model.lazy="msglazy">
+            <p>{{msglazy}}</p>
+            <input type="text" v-model.number="msgnum">
+            <p>{{msgnum}}</p>
+            <input type="text" v-model.trim="msgtrim">
+            <p>{{msgtrim}}test</p>
+            <p>texdarea{{areaText}}</p>
+            <p><textarea name="" id="" cols="30" rows="10" v-model="areaText"></textarea></p>
+            <p>复选框</p>
+            <input type="checkbox" id="isTrue" v-model="isTrue">
+            <label for="isTrue">{{isTrue}}</label>
+            <hr>
+            <input type="checkbox" id="hxx" value="hxx" v-model="web_names">
+            <label for="hxx">hxx</label>
+            <input type="checkbox" id="hc" value="hc" v-model="web_names">
+            <label for="hc">hc</label>
+            <input type="checkbox" id="wl" value="wl" v-model="web_names">
+            <label for="wl">wl</label>
+            <p>{{web_names}}</p>
+            <p>单选</p>
+            <input type="radio" name="sex" id="man" value="男" v-model="sex"> 
+            <label for="man">男</label>
+            <input type="radio" name="sex" id="nv" value="女" v-model="sex"> 
+            <label for="nv">女</label>
+            <p>所选性别：{{sex}}</p>
+
+        </div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data:{
+                    msg: '测试v-model',
+                    msglazy: '测试v-modelazy',
+                    msgnum: 1222,
+                    msgtrim: '测试v-modeltrim',
+                    areaText: '文本框双向绑定',
+                    isTrue: false,
+                    web_names: [],
+                    sex: '男'
+                }
+            })
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>v-for</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>v-if</h3>
+        <hr>
+        <div id="app">
+            <ul>
+                <li v-for="data in dataArr">{{data}}</li>
+            </ul>
+            <ul>
+                <li v-for="num in sortNumber">{{num}}</li>
+            </ul>
+            <ul>
+                <li v-for="(mem, index) in sortMember">
+                    {{index}}: {{mem.name}}---{{mem.age}}岁
+                </li>
+            </ul>
+            
+        </div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data:{
+                    dataArr: ['hxx','test1','test2'],
+                    numberArr: [12,25,33,45,17,56],
+                    objMemberArr: [{
+                        name: 'hxx',
+                        age: '30'
+                    },{
+                        name: 'hc',
+                        age: '28'
+                    },{
+                        name: 'wl',
+                        age: '26'
+                    },{
+                        name: 'ruhua',
+                        age: '29'
+                    }]
+                },
+                computed:{
+                    sortNumber:function(){
+                        return this.numberArr.sort(test);
+                    },
+                    sortMember: function(){
+                        return sortObj(this.objMemberArr, 'age');
+                    }
+                }
+            })
+            function test(a,b){
+                return a-b;
+            }
+            //对象排序方法(由小到大)
+            function sortObj(arr, key){
+                return arr.sort(function(a, b){
+                    var x = a[key];
+                    var y = b[key];
+                    return ((x < y) ? -1 : (x > y) ? 1 : 0 );
+                });
+            }
+        </script>
+    </body>
+</html>

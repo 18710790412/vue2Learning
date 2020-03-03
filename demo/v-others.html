@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>v-once/v-pre/v-cloak</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            .classA{
+                color: red;
+            }
+            .classB{
+                font-size: 150%;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>v-once/v-pre/v-cloak</h3>
+        <hr>
+        <div id="app">
+            <p v-pre>{{msg}}</p>
+            <p v-cloak>渲染完成之后再显示</p>
+            <p v-once>{{msg}}</p>
+            <input type="text" v-model="msg">
+            <P>{{msg}}</P>
+
+        </div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data:{
+                    msg: 'hello world!!'
+                }
+            })
+        </script>
+    </body>
+</html>

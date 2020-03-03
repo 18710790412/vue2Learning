@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>v-bind</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            .classA{
+                color: red;
+            }
+            .classB{
+                font-size: 150%;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>v-bind</h3>
+        <hr>
+        <div id="app">
+            <img :src="imgUrl" alt="" style="max-height:50px;max-width:50px;">
+            <p :class="classA">1.绑定class</p>
+            <p :class="{classA:isTrue}">1.绑定class的判断</p> 
+            <p :class="isTrue?classA:classB">1.绑定class的判断-三目运算</p> 
+            <p :class="[classA, classB]">1.绑定class的多个绑定</p> 
+            <p :class="[{classA: !isTrue}, {classB:isTrue}]">1.绑定class的多个绑定</p> 
+            <hr>
+            <input type="checkbox" id="isTrue" v-model="isTrue">
+            <label for="isTrue">{{isTrue}}</label>
+            <p>绑定style</p>
+            <p :style="styleObj">绑定style设置</p>
+
+        </div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data:{
+                    imgUrl: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1285692434,2601355820&fm=26&gp=0.jpg',
+                    classA: 'classA',
+                    classB: 'classB',
+                    isTrue: true,
+                    styleObj: {
+                        fontSize: '20px',
+                        background: 'pink',
+                        color: 'white'
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

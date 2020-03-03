@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>extend</title>
+        <style>
+            ul li{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+        <script type="text/javascript" src="../assets/js/vue.js"></script>
+    </head>
+    <body>
+        <h3>vue-extend扩展实例构造器</h3>
+        <hr>
+        <author></author>
+        <div id="author"></div>
+        <script type="text/javascript">
+            // Vue.directive('hxx', function(el, binding){
+            //     el.style = 'color:' + binding.value;
+            // });
+            var authorExtend = Vue.extend({
+                template: "<p><a :href='hrefUrl'>{{authorName}}</a></p>",
+                data:function(){
+                    return {
+                        authorName: '侯小轩',
+                        hrefUrl: 'https://www.hao123.com/'
+                    }
+                }
+            });
+            new authorExtend().$mount('author');
+            new authorExtend().$mount('#author');
+           
+        </script>
+    </body>
+</html>
