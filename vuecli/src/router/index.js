@@ -9,6 +9,7 @@ import FirstSon2 from '@/components/firstSon2'
 import LeftRoute from '@/components/leftRoute'
 import RightRoute from '@/components/rightRoute'
 import Error from '@/components/error'
+import VuexCount from '@/components/vuex-count'
 
 Vue.use(Router)
 
@@ -64,6 +65,10 @@ export default new Router({
         component: FirstSon2,
       }],
       alias: '/hxx'
+    },
+    {
+      path: '/vuexCount',
+      component: VuexCount
     },
     {
       path: '*',
